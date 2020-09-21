@@ -11,7 +11,7 @@ module Graphiti::OpenAPI
 
     def initialize(
                    root: Rails.root,
-                   schema: root.join("public#{ApplicationResource.endpoint_namespace}").join("schema.json"),
+                   schema: root.join("public#{External::Api::V1::AppResource.endpoint_namespace}").join("schema.json"),
                    jsonapi: root.join("public/schemas/jsonapi.json"),
                    template: root.join("config/openapi.yml"))
       @root = Pathname(root)

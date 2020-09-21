@@ -8,8 +8,8 @@ module Graphiti
   end
 end
 
-ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.acronym "API"
-end
+# ActiveSupport::Inflector.inflections(:en) do |inflect|
+#   inflect.acronym "API"
+# end
 
 require "graphiti/open_api/engine"

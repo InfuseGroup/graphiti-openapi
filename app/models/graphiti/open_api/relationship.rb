@@ -6,7 +6,7 @@ module Graphiti::OpenAPI
     attribute :type, Types::String
     attribute :description, Types::String.optional
     attribute? :resource, Types::String.optional
-    attribute? :resources, Types.Array(Types::String).default([])
+    attribute? :resources, Types.Array(Types::String).default([].freeze)
   end
 
   class Relationship < RelationshipData
