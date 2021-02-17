@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "railties", "~> 5.2.2"
+  spec.add_runtime_dependency "railties", ">= 5"
   spec.add_runtime_dependency "activemodel"
   spec.add_runtime_dependency "responders"
   spec.add_runtime_dependency "kaminari"
@@ -42,7 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rufo"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "activerecord"
-  # spec.add_development_dependency "pg"
+  spec.add_development_dependency "pg"
   spec.add_development_dependency "graphiti_spec_helpers"
   spec.add_development_dependency "factory_bot_rails"
 end
