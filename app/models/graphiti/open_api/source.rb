@@ -2,7 +2,7 @@ require "graphiti/open_api"
 require_relative "struct"
 require_relative "functions"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class Source < Struct
     DEFAULT_REWRITE = -> (text) { text }
     DEFAULT_PARSE = JSON.method(:parse)

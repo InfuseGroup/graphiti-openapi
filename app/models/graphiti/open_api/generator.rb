@@ -4,7 +4,7 @@ require "dry/core/memoizable"
 require_relative "functions"
 require_relative "schema"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class Generator
     extend Forwardable
     include Dry::Core::Memoizable
@@ -164,7 +164,7 @@ module Graphiti::OpenAPI
         oneOf: resources.values.map { |resource| {'$ref': "#/components/schemas/#{resource.type}_resource"} },
       }
 
-      # Fix OpenAPI and JSON Schema differences
+      # Fix OpenApi and JSON Schema differences
       defs[:relationshipLinks][:properties][:self].delete(:description)
 
       # Hide meta & links

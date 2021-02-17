@@ -1,7 +1,7 @@
 require "graphiti/open_api"
 require "dry-types"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   module Types
     include Dry.Types(default: :nominal)
 

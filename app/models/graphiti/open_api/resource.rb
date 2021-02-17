@@ -4,7 +4,7 @@ require_relative "struct"
 require_relative "attribute"
 require_relative "relationship"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class ResourceData < Struct
     attribute :name, Types::String
     attribute :type, Types::String

@@ -1,7 +1,7 @@
 require "graphiti/open_api"
 require_relative "struct"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class AttributeData < Struct
     attribute :type, Types::String
     attribute :readable, Types::Bool

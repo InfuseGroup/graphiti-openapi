@@ -1,6 +1,6 @@
-# Graphiti::OpenAPI
+# Graphiti::OpenApi
 
-OpenAPI 3.0 specification for your ([Graphiti](https://github.com/graphiti-api/graphiti)) JSON:API
+OpenApi 3.0 specification for your ([Graphiti](https://github.com/graphiti-api/graphiti)) JSON:API
 
 ## Installation
 
@@ -22,12 +22,12 @@ Set up environment running
 bin/rails graphiti:openapi:install
 ```
 
-Configure OpenAPI template in `config/openapi.yml` and Graphiti::OpenAPI will pick your resources schema and
-translate it to OpenAPI 3.0 JSON and YAML files, providing Swagger UI with live API documentation.
+Configure OpenApi template in `config/openapi.yml` and Graphiti::OpenApi will pick your resources schema and
+translate it to OpenApi 3.0 JSON and YAML files, providing Swagger UI with live API documentation.
 
 ## Usage
 
-Edit template in `config/openapi.yml` to customize your OpenAPI output. This file will be used as base for resulting
+Edit template in `config/openapi.yml` to customize your OpenApi output. This file will be used as base for resulting
 document.
 
 ## Development
@@ -42,4 +42,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/alsemy
 
 ## Code of Conduct
 
-Everyone interacting in the Graphiti::OpenAPI project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alsemyonov/graphiti-openapi/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Graphiti::OpenApi project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alsemyonov/graphiti-openapi/blob/master/CODE_OF_CONDUCT.md).

@@ -1,4 +1,4 @@
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class SpecificationsController < ::ApplicationController
     def index
       respond_to do |format|

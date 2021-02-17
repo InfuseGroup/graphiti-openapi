@@ -1,7 +1,7 @@
 require "graphiti/open_api"
 require_relative "struct"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class RelationshipData < Struct
     attribute :type, Types::String
     attribute :description, Types::String.optional

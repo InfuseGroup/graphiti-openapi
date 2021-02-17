@@ -2,11 +2,11 @@ require_relative "lib/graphiti/open_api/version"
 
 Gem::Specification.new do |spec|
   spec.name = "graphiti-openapi"
-  spec.version = Graphiti::OpenAPI::VERSION
+  spec.version = Graphiti::OpenApi::VERSION
   spec.authors = ["Alex Semyonov"]
   spec.email = ["alex@semyonov.us"]
 
-  spec.summary = %q{OpenAPI 3.0 specification for your (Graphiti) JSON:API}
+  spec.summary = %q{OpenApi 3.0 specification for your (Graphiti) JSON:API}
   spec.description = spec.summary
   spec.homepage = "https://github.com/alsemyonov/graphiti-openapi"
 
