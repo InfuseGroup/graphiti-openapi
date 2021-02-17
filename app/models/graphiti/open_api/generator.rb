@@ -10,10 +10,11 @@ module Graphiti::OpenApi
     include Dry::Core::Memoizable
 
     def initialize(
-                   root: Rails.root,
-                   schema: root.join("public#{External::Api::V1::AppResource.endpoint_namespace}").join("schema.json"),
-                   jsonapi: root.join("public/schemas/jsonapi.json"),
-                   template: root.join("config/openapi.yml"))
+      root: Rails.root,
+      schema: root.join("public#{ApplicationResource.endpoint_namespace}").join("schema.json"),
+      jsonapi: root.join("public/schemas/jsonapi.json"),
+      template: root.join("config/openapi.yml")
+    )
       @root = Pathname(root)
       @schema_path = schema
       @jsonapi_path = jsonapi
