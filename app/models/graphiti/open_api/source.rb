@@ -12,16 +12,16 @@ module Graphiti::OpenApi
     attribute :path, Types::Pathname
     attribute :data, Types::Hash
 
-    def self.load(path, name: path.basename, rewrite: DEFAULT_REWRITE, process: DEFAULT_PROCESS, parse: DEFAULT_PARSE)
-      text = rewrite.(path.read)
-      parsed = parse.(text)
-      data = process.(parsed)
-
-      new(
-        name: name,
-        path: path,
-        data: data,
-      )
-    end
+    # def self.load(path, name: path.basename, rewrite: DEFAULT_REWRITE, process: DEFAULT_PROCESS, parse: DEFAULT_PARSE)
+    #   text = rewrite.(path.read)
+    #   parsed = parse.(text)
+    #   data = process.(parsed)
+    #
+    #   new(
+    #     name: name,
+    #     path: path,
+    #     data: data,
+    #   )
+    # end
   end
 end
