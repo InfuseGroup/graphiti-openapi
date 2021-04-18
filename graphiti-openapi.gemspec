@@ -2,11 +2,11 @@ require_relative "lib/graphiti/open_api/version"
 
 Gem::Specification.new do |spec|
   spec.name = "graphiti-openapi"
-  spec.version = Graphiti::OpenAPI::VERSION
+  spec.version = Graphiti::OpenApi::VERSION
   spec.authors = ["Alex Semyonov"]
   spec.email = ["alex@semyonov.us"]
 
-  spec.summary = %q{OpenAPI 3.0 specification for your (Graphiti) JSON:API}
+  spec.summary = %q{OpenApi 3.0 specification for your (Graphiti) JSON:API}
   spec.description = spec.summary
   spec.homepage = "https://github.com/alsemyonov/graphiti-openapi"
 
@@ -25,12 +25,12 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "railties", "~> 5.2.2"
+  spec.add_runtime_dependency "railties", ">= 5"
   spec.add_runtime_dependency "activemodel"
   spec.add_runtime_dependency "responders"
   spec.add_runtime_dependency "kaminari"
-  spec.add_runtime_dependency "graphiti", "~> 1.0.rc.7"
-  spec.add_runtime_dependency "dry-struct", "~> 0.6.0"
+  spec.add_runtime_dependency "graphiti", "1.2.31"
+  spec.add_runtime_dependency "dry-struct", "~> 1.0"
   spec.add_runtime_dependency "transproc"
   spec.add_runtime_dependency "webpacker"
 

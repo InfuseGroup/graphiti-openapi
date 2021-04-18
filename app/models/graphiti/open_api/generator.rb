@@ -4,16 +4,17 @@ require "dry/core/memoizable"
 require_relative "functions"
 require_relative "schema"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class Generator
     extend Forwardable
     include Dry::Core::Memoizable
 
     def initialize(
-                   root: Rails.root,
-                   schema: root.join("public#{ApplicationResource.endpoint_namespace}").join("schema.json"),
-                   jsonapi: root.join("public/schemas/jsonapi.json"),
-                   template: root.join("config/openapi.yml"))
+      root: Rails.root,
+      schema: root.join("public#{ApplicationResource.endpoint_namespace}").join("schema.json"),
+      jsonapi: root.join("public/schemas/jsonapi.json"),
+      template: root.join("config/openapi.yml")
+    )
       @root = Pathname(root)
       @schema_path = schema
       @jsonapi_path = jsonapi
@@ -35,11 +36,21 @@ module Graphiti::OpenAPI
                             :resource
 
     def schema_source(path = @schema_path)
-      Source.load(path)
+      # Source.load(path)
+      Source.new(
+        name: 'schema.json',
+        path: path,
+        data: JSON.parse(path.read).deep_symbolize_keys
+      )
     end
 
     def template_source(path = @template_path)
-      Source.load(path, parse: YAML.method(:safe_load))
+      # Source.load(path, name: 'openapi.yml', parse: YAML.method(:safe_load))
+      Source.new(
+        name: 'openapi.yml',
+        path: path,
+        data: YAML.safe_load(path.read).deep_symbolize_keys
+      )
     end
 
     def paths
@@ -140,7 +151,15 @@ module Graphiti::OpenAPI
     PREFIX_JSONAPI_DEFINITIONS = Functions[:map_keys, -> (key) { "jsonapi_#{key}" }]
 
     def jsonapi_source(path = @jsonapi_path)
-      Source.load(path, rewrite: REWRITE_JSONAPI_SCHEMA, process: PROCESS_JSONAPI_SCHEMA)
+      # Source.load(path, name: 'openapi.json', rewrite: REWRITE_JSONAPI_SCHEMA, process: PROCESS_JSONAPI_SCHEMA)
+      text = REWRITE_JSONAPI_SCHEMA.(path.read)
+      parsed = JSON.parse(text)
+      data = PROCESS_JSONAPI_SCHEMA.(parsed)
+      Source.new(
+        name: 'openapi.json',
+        path: path,
+        data: data
+      )
     end
 
     def jsonapi_definitions
@@ -164,7 +183,7 @@ module Graphiti::OpenAPI
         oneOf: resources.values.map { |resource| {'$ref': "#/components/schemas/#{resource.type}_resource"} },
       }
 
-      # Fix OpenAPI and JSON Schema differences
+      # Fix OpenApi and JSON Schema differences
       defs[:relationshipLinks][:properties][:self].delete(:description)
 
       # Hide meta & links

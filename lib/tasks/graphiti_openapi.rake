@@ -14,19 +14,19 @@ namespace :graphiti do
       system "#{RbConfig.ruby} ./bin/rails app:template LOCATION=#{installer_template}"
     end
 
-    desc "Generate OpenAPI files in public/"
+    desc "Generate OpenApi files in public/"
     task generate: %W[environment #{jsonapi_schema}] do
-      generator = Graphiti::OpenAPI::Generator.new
-      api = Rails.root.join("public#{ApplicationResource.endpoint_namespace}")
-      api.join("openapi.json").write(generator.to_openapi.to_json)
-      api.join("openapi.yaml").write(generator.to_openapi(format: :yaml))
+      # generator = Graphiti::OpenApi::Generator.new
+      # api = Rails.root.join("public#{ApplicationResource.endpoint_namespace}")
+      # api.join("openapi.json").write(generator.to_openapi.to_json)
+      # api.join("openapi.yaml").write(generator.to_openapi(format: :yaml))
     end
   end
 end
 
-namespace :assets do
-  task precompile: "graphiti:openapi:generate"
-end
+# namespace :assets do
+#   task precompile: "graphiti:openapi:generate"
+# end
 
 file jsonapi_schema do |t|
   Pathname(t.name).dirname.mkpath

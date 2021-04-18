@@ -1,7 +1,7 @@
 require "graphiti/open_api"
 require_relative "struct"
 
-module Graphiti::OpenAPI
+module Graphiti::OpenApi
   class AttributeData < Struct
     attribute :type, Types::String
     attribute :readable, Types::Bool
@@ -36,5 +36,13 @@ module Graphiti::OpenAPI
         result[name] = Attribute.new(data.to_hash.merge(name: name, resource: resource))
       end
     end
+  end
+
+  # Writable seems to be left out when creating the graphiti schema?
+  class ExtraAttributeData < Struct
+    attribute :type, Types::String
+    attribute :readable, Types::Bool
+    attribute :writable, Types::Bool.optional
+    attribute :description, Types::String.optional
   end
 end
