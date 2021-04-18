@@ -37,4 +37,10 @@ module Graphiti::OpenApi
       end
     end
   end
+
+  class ExtraAttributeData < Struct
+    attribute :type, Types::String
+    attribute :readable, Types::Bool
+    attribute :description, Types::String.optional
+  end
 end
